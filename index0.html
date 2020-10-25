@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Space Pokedex Home Page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyCqE5_3G5kJB1rWvLHOGRlt_V5TCtwjxJw",
+        authDomain: "spacedex-project-2179f.firebaseapp.com",
+        databaseURL: "https://spacedex-project-2179f.firebaseio.com",
+        projectId: "spacedex-project-2179f",
+        storageBucket: "spacedex-project-2179f.appspot.com",
+        messagingSenderId: "536238363421",
+        appId: "1:536238363421:web:51675b6918de284f8d47f4",
+        measurementId: "G-L7H3H24KM8"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <script src="app.js" defer></script>
+
+  </head>
+  <body>
+    <div class="main">
+      <nav>
+        <div class="greatWave">
+          <img src="images/greatWave.gif">
+        </div>
+        <div class="title">
+          <h1>Pokédex in Space</h1>
+        </div>
+        <div class="nav-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Content</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="overlay"></div>
+      <div class="poke">
+        <img src="images/pokeball.png" class="pokeball">
+        <div id="circle">
+          <div class="mon one">
+            <img src="images/bulbasaur.gif">
+            <div>
+              <h1>Bulbasaur</h1>
+              <p>Grass</p>
+            </div>
+          </div>
+          <div class="mon two">
+            <img src="images/charmander.gif">
+            <div>
+              <h1>Charmander</h1>
+              <p>Fire</p>
+            </div>
+          </div>
+          <div class="mon three">
+            <img src="images/squirtle.gif">
+            <div>
+              <h1>Squirtle</h1>
+              <p>Water</p>
+            </div>
+          </div>
+          <div class="mon four">
+            <img src="images/pikachu-libre.gif">
+            <div>
+              <h1>Pikachu Libre</h1>
+              <p>Electric</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <img src="images/pointer.png" id="upBtn">
+        <h3>Pokémon</h3>
+        <img src="images/pointer.png" id="downBtn">
+      </div>
+      <div class="spaceman">
+        <img src="images/spaceman.gif">
+      </div>
+    </div>
+
+    <script>
+      var circle = document.getElementById("circle")
+      var upBtn = document.getElementById("upBtn")
+      var downBtn = document.getElementById("downBtn")
+
+      var rotateValue = circle.style.transform;
+      var rotateSum;
+
+      upBtn.onclick = function()
+      {
+        rotateSum = rotateValue + "rotate(-90deg)";
+        circle.style.transform = rotateSum;
+        rotateValue = rotateSum;
+      }
+      downBtn.onclick = function()
+      {
+        rotateSum = rotateValue + "rotate(90deg)";
+        circle.style.transform = rotateSum;
+        rotateValue = rotateSum;
+      }
+    </script>
+
+  </body>
+</html>
