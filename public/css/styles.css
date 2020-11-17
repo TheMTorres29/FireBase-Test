@@ -4,86 +4,111 @@
   font-family:Impact, Charcoal, sans-serif;
 }
 
+/* Temp Project Header */
 .projectHeader{
-  background: linear-gradient(#333, #30A9BF);
+  background:linear-gradient(#333, #30A9BF);
 }
 
 .projectHeader h1{
-  text-align: center;
-  color: white;
-  font-weight: lighter;
+  text-align:center;
+  color:white;
+  font-weight:lighter;
 }
 
 .projectHeader h2{
-  text-align: center;
-  color: white;
-  font-weight: lighter;
+  text-align:center;
+  color:white;
+  font-weight:lighter;
 }
 
-nav{
-  position:sticky;
-  z-index:1;
-  display:flex;
-}
-
-.nav-links ul{
-  list-style:none;
-  margin-top:10px;
-  display: inline;
-  float: right;
-}
-
-.nav-links nav ul{
-  text-align: right;
-}
-
-.nav-links li{
-  display:inline-block;
-}
-
-.nav-links a{
-  color:#fff;
-  padding:8px;
-  text-decoration:none;
-}
-
-.nav-links a:hover{
-  color:#30A9BF
-}
-
+/* Main Page */
 .main{
-  width:100%;
-  height: 100vh;
-  position:relative;
+  width:100vw;
+  height:100vh;
+  position:sticky;
   overflow:hidden;
   background-image:url('../images/spaceTwinkle.gif');
   background-position:center;
 }
 
 .greatWave{
-  flex-basis:20%;
+  float:left;
+  padding-left:1%;
 }
 
 .greatWave img{
   border-radius:90%;
-  width:150px;
-  float:right;
-
+  width:120px;
 }
 
 .title{
-  padding:10px;
-  padding-top:20px;
-  padding-left:0px;
+  float:left;
   color:#fff;
   font-style:italic;
   font-size:48px;
-  letter-spacing: 4px;
+  letter-spacing:4px;
+}
+
+.nav-links{
+  float:right;
+}
+
+/* Top Navigation Bar */
+nav{
+  position:static;
+  width:auto;
+  /* background-color:#D6EFFF; for debugging to see where the bounds are*/
+  z-index:1;
+  float:right;
+  padding-right:5%;
+}
+
+.nav-links li{
+  list-style-type:none;
+  margin:0;
+  display:inline;
+}
+
+.nav-links ul{
+  margin:0;
+  padding:8px;
+}
+
+.nav-links a{
+  color:white;
+  padding:8px;
+  text-decoration:none;
+}
+
+.nav-links a:hover{
+  color:#30A9BF;
+}
+
+.nav-links a:active{
+  color:red;
+}
+
+.userlogin {
+  float:right;
+  padding:8px;
+  color:white;
+  text-decoration:none;
+}
+
+.loggedin {
+  float:right;
+  padding:8px;
+  color:white;
+  text-decoration:none;
+}
+
+.loggedin button{
+  float:right;
 }
 
 .spaceman{
-  position:absolute;
-  right:30%;
+  position:sticky;
+  padding-left:70%;
 }
 
 .spaceman img{
@@ -92,12 +117,18 @@ nav{
 }
 
 .container{
-  background-color: white;
+  background-color:white;
+  padding:10px;
+  width:300px;
+  border: 3px solid #30A9BF;
+  position:sticky;
+  margin:150px 50px;
 }
 
+/* Pokeball Carousel */
 .wheel{
-  width:200px;
-  height:200px;
+  width:250px;
+  height:250px;
   background-color:blue;
 
   position:absolute;
@@ -107,8 +138,8 @@ nav{
 }
 
 .pokeball img{
-  width:900px;
-  height:900px;
+  width:850px;
+  height:850px;
   position:absolute;
   top:2%;
   left:-18%;

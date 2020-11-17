@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     if(user != null){
       var email_id = user.email;
-      document.getElementById("user_para").innerHTML = "Welcome User: ";
+      document.getElementById("user_para").innerHTML = "Welcome " + email_id;
     }
 
   } else {
@@ -37,5 +37,4 @@ function logout(){
   //}).catch(function(error) {
     // An error happened.
   //});
-
 }
