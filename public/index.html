@@ -2,17 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>MTorres29 Site Practice Project</title>
+    <title>MTorres29 SpaceDex Project</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <!-- <link rel="stylesheet" href="/css/materialize.min.css"> -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
   </head>
   <body>
-    <div class="projectHeader">
-      <h1>MTorres29's Site</h1>
-      <h2>Practice Project</h2>
-    </div>
-
     <div class="main">
+
+      <div class="projectHeader">
+        <h1>MTorres29's Site</h1>
+        <h2>Practice Project</h2>
+      </div>
+
       <div class="titleBar">
         <div class="greatWave">
           <img src="images/greatWave.gif">
@@ -35,6 +36,7 @@
             <input id="email_field" type="email" placeholder="Email...">
             <input id="password_field" type="password" placeholder="Password...">
             <button onclick="login()">Login</button>
+            <button onclick="signUp()">Sign Up</button>
           </div>
 
           <div id="user_div" class="loggedin">
@@ -45,22 +47,14 @@
       </div>
 
       <div class="container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Welcome to the Beta site. Its comin along I would say. Needs touch ups for sure but we're gettin there.
+           Any suggestions, let me know. I'll see what I can do. Still a WIP remember >-></p>
       </div>
 
       <div class="spaceman">
         <img src="images/spaceman.gif">
       </div>
 
-
-      <!-- <div class="container">
-        <article>
-          <h2>Look...</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Test test test</p>
-          <p>Learning web apps is fun :^)</p>
-        </article>
-      </div> -->
 
     </div>
 
@@ -73,6 +67,7 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
 
     <script>
       // Your web app's Firebase configuration
@@ -90,8 +85,9 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
+      const db = firebase.firestore();
+      db.settings({ timestampsInSnapshots: true});
     </script>
     <script src="/js/index.js"></script>
-
   </body>
 </html>
