@@ -8,12 +8,6 @@
   </head>
   <body>
     <div class="main">
-
-      <div class="projectHeader">
-        <h1>MTorres29's Site</h1>
-        <h2>Practice Project</h2>
-      </div>
-
       <div class="titleBar">
         <div class="greatWave">
           <img src="images/greatWave.gif">
@@ -26,7 +20,7 @@
           <div class="nav-links">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="testPage.html">testPage</a></li>
+              <li><a href="testPage.html">My Log</a></li>
               <li><a href="carousel.html">Carousel</a></li>
             </ul>
           </div>
@@ -47,14 +41,21 @@
       </div>
 
       <div class="container">
-        <p>Welcome to the Beta site. Its comin along I would say. Needs touch ups for sure but we're gettin there.
-           Any suggestions, let me know. I'll see what I can do. Still a WIP remember >-></p>
+        <h2>Rate a Game!</h2>
+        <h3>Or share why you love the game :)</h3>
+
+        <form id="addGameForm">
+          <input type="text" name="title" placeholder="Game Title">
+          <input type="text" name="gConsole" placeholder="Console">
+          <button>Add Game</button>
+        </form>
+
+        <ul id="gameList" class="gameList"></ul>
       </div>
 
       <div class="spaceman" style="position:relative; z-index:-1;">
         <img src="images/spaceman.gif">
       </div>
-
 
     </div>
 

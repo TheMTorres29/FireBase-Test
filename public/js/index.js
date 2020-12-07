@@ -52,8 +52,65 @@ function logout(){
   //});
 }
 
-db.collection('pokemon').get().then((snapshot) => {
-  snapshot.docs.forEach(doc => {
-    console.log(doc.data())
+// JS from FireStore tutorial
+const pokemonGameList = document.querySelector('#gameList');
+const form = document.querySelector('#addGameForm');
+
+// create element and render games
+function renderGame(doc){
+  let li = document.createElement('li');
+  let gameTitle = document.createElement('span')
+  let gameConsole = document.createElement('span')
+  let cross = document.createElement('div');
+
+  li.setAttribute('data-id', doc.id);
+  gameTitle.textContent = doc.data().title;
+  gameConsole.textContent = doc.data().gConsole;
+  cross.textContent = 'Delete';
+
+  li.appendChild(gameTitle);
+  li.appendChild(gameConsole);
+  li.appendChild(cross);
+
+  gameList.appendChild(li);
+
+  // deleting data
+  cross.addEventListener('click', (e) => {
+    e.stopPropagation();
+    let id = e.target.parentElement.getAttribute('data-id');
+    db.collection('pokemonGames').doc(id).delete();
   })
+}
+
+// getting data
+// db.collection('pokemonGames').orderBy('title').get().then((snapshot) => {
+//   snapshot.docs.forEach(doc => {
+//     renderGame(doc);
+//   })
+// })
+
+//saving data
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  db.collection('pokemonGames').add({
+    title: form.title.value,
+    gConsole: form.gConsole.value
+  });
+  form.title.value = '';
+  form.gConsole.value = '';
+})
+
+// real-time listner
+db.collection('pokemonGames').orderBy('title').onSnapshot(snapshot => {
+  let changes = snapshot.docChanges();
+  changes.forEach(change => {
+    if(change.type == 'added'){
+      renderGame(change.doc);
+    }
+    else if(change.type == 'removed'){
+      let li = gameList.querySelector('[data-id=' + change.doc.id + ']');
+      gameList.removeChild(li);
+    }
+  });
+
 })
